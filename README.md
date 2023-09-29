@@ -1,5 +1,5 @@
 <h1 align="center">
-  Vite Template React
+  Vite Template React + WalletConnect
 </h1>
 
 <p align="center">
@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-    A <a href="https://vitejs.dev">Vite</a> + <a href="https://react.dev">React</a> starter template.
+    A <a href="https://vitejs.dev">Vite</a> + <a href="https://react.dev">React</a> + WalletConnect starter template.
 </p>
 
 ![Vite Template React](https://github.com/SafdarJamal/vite-template-react/assets/48409548/4b1eb99e-01b8-4752-91c0-76930e7948c1)
@@ -40,6 +40,7 @@ vite-template-react
 ├── package.json
 ├── README.md
 ├── vite.config.js
+├── .env
 ```
 
 ## Development
@@ -69,6 +70,12 @@ Now, you can start a local web server by running:
 
 ```
 npm start
+```
+
+Add a WalletConnect project id in a .env file you create at the root of the project. In the .env create a new entry 
+
+```
+VITE_WALLETCONNECT_ID=YourId
 ```
 
 And then open http://localhost:3000 to view it in the browser.
