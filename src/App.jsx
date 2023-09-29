@@ -1,20 +1,34 @@
-import { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import useWalletConnect from "./useWalletConnect";
+import logo from "./logo.svg";
+import "./App.css";
 
 const App = () => {
-  const [count, setCount] = useState(0);
+  const [uri, setUri] = useState("");
+  const { createWeb3Wallet, pair } = useWalletConnect();
+
+  const handleConnect = async () => {
+    // Here, you would initiate the WalletConnect connection using the provided URI.
+    // For the sake of this example, we'll just log it.
+    await createWeb3Wallet();
+    await pair({ uri });
+    console.log(`Connecting to WalletConnect with URI: ${uri}`);
+  };
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>Vite + React</h1>
-        <p>
-          <button onClick={() => setCount(count => count + 1)}>
-            count is {count}
-          </button>
-        </p>
+        <h1>Vite + React + WalletConnect</h1>
+        <div>
+          <input
+            type="text"
+            placeholder="Paste WalletConnect URI here"
+            value={uri}
+            onChange={(e) => setUri(e.target.value)}
+          />
+          <button onClick={handleConnect}>Connect</button>
+        </div>
         <p>
           Edit <code>App.jsx</code> and save to test HMR updates.
         </p>
@@ -27,7 +41,7 @@ const App = () => {
           >
             Learn React
           </a>
-          {' | '}
+          {" | "}
           <a
             className="App-link"
             href="https://vitejs.dev/guide/features.html"
