@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useWalletConnect from "./useWalletConnect";
 import logo from "./logo.svg";
 import "./App.css";
@@ -7,10 +7,14 @@ const App = () => {
   const [uri, setUri] = useState("");
   const { createWeb3Wallet, pair } = useWalletConnect();
 
+  useEffect(() => {
+    createWeb3Wallet({ uri });
+  }, []);
+
   const handleConnect = async () => {
     // Here, you would initiate the WalletConnect connection using the provided URI.
     // For the sake of this example, we'll just log it.
-    await createWeb3Wallet();
+
     await pair({ uri });
     console.log(`Connecting to WalletConnect with URI: ${uri}`);
   };

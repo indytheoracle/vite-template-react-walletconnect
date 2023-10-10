@@ -33,10 +33,10 @@ const useWalletConnect = () => {
     setWeb3Wallet(newWallet);
   };
 
-  const pair = async () => {
+  const pair = async ({ uri }) => {
     if (!web3wallet) return;
     debugger;
-    await web3wallet.pair();
+    await web3wallet.pair({ uri });
   };
 
   return {

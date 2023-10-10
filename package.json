@@ -9,7 +9,6 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@walletconnect/core": "^2.10.1",
     "@walletconnect/web3wallet": "^1.9.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
